@@ -4,7 +4,18 @@
  * Hecho esto, imprime los números primos entre 1 y 100.
  */
 '''
-numero = int(input("Ingrese un número para comprobar si es primo o no: "))
-if numero % 2 == 1: print(f"\t\"{numero}\" es primo")
-print(f"Los números primos del 1 al 100 son:\n {[x for x in range(1, 101) if x % 2 == 1]}")
 
+def es_primo(n):
+    if n == 0: return False
+    for i in range(2, n):
+        if n % i == 0: return False
+    return True
+
+def rango_numeros(m):
+    lista_numeros_primos = [1]
+    for i in range(2, m):
+        if es_primo(i):
+            lista_numeros_primos.append(i)
+    print(lista_numeros_primos)
+
+rango_numeros(100)
